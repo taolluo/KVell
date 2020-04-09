@@ -1,4 +1,5 @@
 #include "headers.h"
+#include "ioengine.h"
 
 /*
  * A slab worker takes care of processing requests sent to the KV-Store.
@@ -44,19 +45,19 @@ int get_nb_disks(void) {
  * Worker context - Each worker thread in KVell has one of these structure
  */
 size_t slab_sizes[] = { 100, 128, 256, 400, 512, 1024, 1365, 2048, 4096 };
-struct slab_context {
-   size_t worker_id __attribute__((aligned(64)));        // ID
-   struct slab **slabs;                                  // Files managed by this worker
-   struct slab_callback **callbacks;                     // Callbacks associated with the requests
-   volatile size_t buffered_callbacks_idx;               // Number of requests enqueued or in the process of being enqueued
-   volatile size_t sent_callbacks;                       // Number of requests fully enqueued
-   volatile size_t processed_callbacks;                  // Number of requests fully submitted and processed on disk
-   size_t max_pending_callbacks;                         // Maximum number of enqueued requests
-   struct pagecache *pagecache __attribute__((aligned(64)));
-   struct io_context *io_ctx;
-   uint64_t rdt;                                         // Latest timestamp
-} *slab_contexts;
-
+//struct slab_context { move to slabworker.h
+//   size_t worker_id __attribute__((aligned(64)));        // ID
+//   struct slab **slabs;                                  // Files managed by this worker
+//   struct slab_callback **callbacks;                     // Callbacks associated with the requests
+//   volatile size_t buffered_callbacks_idx;               // Number of requests enqueued or in the process of being enqueued
+//   volatile size_t sent_callbacks;                       // Number of requests fully enqueued
+//   volatile size_t processed_callbacks;                  // Number of requests fully submitted and processed on disk
+//   size_t max_pending_callbacks;                         // Maximum number of enqueued requests
+//   struct pagecache *pagecache __attribute__((aligned(64)));
+//   struct aio_engine_context *io_ctx; // todo1
+//   uint64_t rdt;                                         // Latest timestamp
+//} *slab_contexts;
+struct slab_context *slab_contexts;
 /* A file is only managed by 1 worker. File => worker function. */
 int get_worker(struct slab *s) {
    return s->ctx->worker_id;
@@ -66,7 +67,7 @@ struct pagecache *get_pagecache(struct slab_context *ctx) {
    return ctx->pagecache;
 }
 
-struct io_context *get_io_context(struct slab_context *ctx) {
+void *get_io_context(struct slab_context *ctx) { //todo1
    return ctx->io_ctx;
 }
 
@@ -286,12 +287,12 @@ again:
             die("Unknown action\n");
       }
       ctx->processed_callbacks++;
-      if(NEVER_EXCEED_QUEUE_DEPTH && io_pending(ctx->io_ctx) >= QUEUE_DEPTH)
+      if(NEVER_EXCEED_QUEUE_DEPTH && ctx->io_ops->io_pending(ctx) >= QUEUE_DEPTH) // todo
          break;
    }
 
    if(WAIT_A_BIT_FOR_MORE_IOS) {
-      while(retries < 5 && io_pending(ctx->io_ctx) < QUEUE_DEPTH) {
+      while(retries < 5 && ctx->io_ops->io_pending(ctx) < QUEUE_DEPTH) { // todo
          retries++;
          pending = ctx->sent_callbacks - ctx->processed_callbacks;
          if(pending == 0) {
@@ -324,7 +325,12 @@ static void worker_slab_init_cb(struct slab_callback *cb, void *item) {
 
 static void *worker_slab_init(void *pdata) {
    struct slab_context *ctx = pdata;
-
+   ctx->io_engine_name = IOENGINE;
+   if (strcmp(IOENGINE, "libaio") ==0 ){
+       ctx->io_ops = &libaio_ops;
+   }else if (strcmp(IOENGINE, "io-uring") ==0 ){
+       ctx->io_ops = &io_uring_ops;
+   }
    __sync_add_and_fetch(&nb_workers_launched, 1);
 
    pid_t x = syscall(__NR_gettid);
@@ -336,7 +342,7 @@ static void *worker_slab_init(void *pdata) {
    page_cache_init(ctx->pagecache);
 
    /* Initialize the async io for the worker */
-   ctx->io_ctx = worker_ioengine_init(ctx->max_pending_callbacks);
+   ctx->io_ctx = ctx->io_ops->worker_ioengine_init(ctx->max_pending_callbacks); // todo io_setup()
 
    /* Rebuild existing data structures */
    size_t nb_slabs = sizeof(slab_sizes)/sizeof(*slab_sizes);
@@ -355,14 +361,14 @@ static void *worker_slab_init(void *pdata) {
    while(1) {
       ctx->rdt++;
 
-      while(io_pending(ctx->io_ctx)) {
-         worker_ioengine_enqueue_ios(ctx->io_ctx); __1
-         worker_ioengine_get_completed_ios(ctx->io_ctx); __2
-         worker_ioengine_process_completed_ios(ctx->io_ctx); __3
+      while(ctx->io_ops->io_pending(ctx)) { // todo
+          ctx->io_ops->worker_ioengine_enqueue_ios(ctx); __1 // todo aio_worker_do_io -> io_submit
+          ctx->io_ops->worker_ioengine_get_completed_ios(ctx); __2 // todo io_getevents
+          ctx->io_ops->worker_ioengine_process_completed_ios(ctx); __3 // todo call callbacks
       }
 
       volatile size_t pending = ctx->sent_callbacks - ctx->processed_callbacks;
-      while(!pending && !io_pending(ctx->io_ctx)) {
+      while(!pending && !ctx->io_ops->io_pending(ctx)) { // todo
          if(!PINNING) {
             usleep(2);
          } else {

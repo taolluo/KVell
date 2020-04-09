@@ -17,10 +17,10 @@ KVell has 2 distinct types of threads. Load injector threads, and worker threads
   * They dequeue requests and figure out from which file queried item should be read or written (`worker_dequeue_requests` [slabworker.c](slabworker.c))
     * Which call functions that compute where the item is in the file (e.g., `read_item_async` [slab.c](slab.c))
        * The location of existing items is store in in-memory indexes (e.g., `btree_worker_lookup` [in-memory-index-btree.c](in-memory-index-btree.c))
-       * Which call functions that check if the item is cached or if an IO request should be created (e.g., `read_page_async` [ioengine.c](ioengine.c))
-  * After dequeueing enough requests, or when the IO queue is full, or when no request can be dequeued anymore, then IOs are sent to disk (`worker_ioengine_enqueue_ios` [slabworker.c](slabworker.c))
-  * We then wait for the disk to process IOs (`worker_ioengine_get_completed_ios`)
-  * And finally we call the callbacks of all processed requests (`worker_ioengine_process_completed_ios`)
+       * Which call functions that check if the item is cached or if an IO request should be created (e.g., `aio_read_page_async` [ioengine.c](ioengine.c))
+  * After dequeueing enough requests, or when the IO queue is full, or when no request can be dequeued anymore, then IOs are sent to disk (`aio_worker_ioengine_enqueue_ios` [slabworker.c](slabworker.c))
+  * We then wait for the disk to process IOs (`aio_worker_ioengine_get_completed_ios`)
+  * And finally we call the callbacks of all processed requests (`aio_worker_ioengine_process_completed_ios`)
 
 ## Options
 

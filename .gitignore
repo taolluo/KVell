@@ -200,3 +200,6 @@ fabric.properties
 
 # Local History for Visual Studio Code
 .history/
+
+
+./scripts/config_output.txt

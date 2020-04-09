@@ -22,12 +22,17 @@
 
 /* Page cache */
 //#define PAGE_CACHE_SIZE (PAGE_SIZE * 20480)
-#define PAGE_CACHE_SIZE (PAGE_SIZE * 7864320) //30GB
+//#define PAGE_CACHE_SIZE (PAGE_SIZE * 7864320) //30GB
 //#define PAGE_CACHE_SIZE (PAGE_SIZE * 2621440) //10GB
 //#define PAGE_CACHE_SIZE (PAGE_SIZE * 786432) //3GB
+#define PAGE_CACHE_SIZE (PAGE_SIZE * 131072) //500MB
+
 #define MAX_PAGE_CACHE (PAGE_CACHE_SIZE / PAGE_SIZE)
 
 /* Free list */
 #define FREELIST_IN_MEMORY_ITEMS (256) // We need enough to never have to read from disk
+
+
+#define IOENGINE "libaio" // "libaio" or io-uring
 
 #endif

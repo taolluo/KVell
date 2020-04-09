@@ -171,7 +171,7 @@ struct slab* resize_slab(struct slab *s) {
  */
 void *read_item(struct slab *s, size_t idx) {
    size_t page_num = item_page_num(s, idx);
-   char *disk_data = safe_pread(s->fd, page_num*PAGE_SIZE);
+   char *disk_data = safe_pread(s->fd, page_num*PAGE_SIZE); // todo
    return &disk_data[item_in_page_offset(s, idx)];
 }
 
@@ -190,13 +190,13 @@ void read_item_async_cb(struct slab_callback *callback) {
 
 void read_item_async(struct slab_callback *callback) {
    callback->io_cb = read_item_async_cb;
-   read_page_async(callback);
+    callback->slab->ctx->io_ops->read_page_async(callback); //todo
 }
 
 /*
  * Asynchronous update item:
- * - First read the page where the item is staying
- * - Once the page is in page cache, write it
+ * - First read the page where the item is staying, aio_read_page_async()
+ * - Once the page is in page cache, write it, aio_write_page_async()
  * - Then send the order to flush it.
  */
 void update_item_async_cb2(struct slab_callback *callback) {
@@ -238,12 +238,12 @@ void update_item_async_cb1(struct slab_callback *callback) {
       memcpy(&disk_page[offset_in_page], item, get_item_size(item));
 
    callback->io_cb = update_item_async_cb2;
-   write_page_async(callback);
+    callback->slab->ctx->io_ops->write_page_async(callback); //todo
 }
 
 void update_item_async(struct slab_callback *callback) {
    callback->io_cb = update_item_async_cb1;
-   read_page_async(callback);
+    callback->slab->ctx->io_ops->read_page_async(callback); //todo
 }
 
 /*
@@ -302,11 +302,11 @@ void remove_item_by_idx_async_cb1(struct slab_callback *callback) {
    add_item_in_free_list(s, idx, meta);
 
    callback->io_cb = update_item_async_cb2;
-   write_page_async(callback);
+    callback->slab->ctx->io_ops->write_page_async(callback); //todo
 }
 
 
 void remove_item_async(struct slab_callback *callback) {
    callback->io_cb = remove_item_by_idx_async_cb1;
-   read_page_async(callback);
+    callback->slab->ctx->io_ops->read_page_async(callback); //todo
 }
