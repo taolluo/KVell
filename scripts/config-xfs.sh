@@ -23,9 +23,10 @@ used=`df -h | grep nvme | perl -pe 's/.*?([0-9]).*/\1/'` # For some reason / is 
 j=0
 for i in 0 1 2 3 4 5 6 7 8; do
    [ "$i" = "$used" ] && continue
-   mkfs.ext4 -F  /dev/nvme${i}n1
+   mkfs.xfs -f  /dev/nvme${i}n1
    mkdir /scratch${j}
-   mount -o rw,noatime,nodiratime,block_validity,delalloc,nojournal_checksum,barrier,user_xattr,acl /dev/nvme${i}n1 /scratch${j}/
+   umount /sratch${j}
+   mount  /dev/nvme${i}n1 /scratch${j}/
    mkdir /scratch${j}/kvell
    sudo chown taoluo:taoluo /scratch${j}/kvell
    j=$((j+1))

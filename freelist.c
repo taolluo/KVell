@@ -70,7 +70,7 @@ void get_free_item_idx(struct slab_callback *cb) {
    s->nb_free_items--;
    s->nb_free_items_in_memory--;
    free(old_entry);
-    cb->slab->ctx->io_ops->read_page_async(cb); // todo
+    cb->slab->ctx->io_ops->read_page_async(cb);
 }
 
 /*

@@ -17,6 +17,7 @@ struct slab {
    size_t nb_max_items;
 
    int fd;
+   int iouring_fixed_fd;
    size_t size_on_disk;
 
    size_t nb_free_items, nb_free_items_in_memory;

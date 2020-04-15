@@ -287,12 +287,12 @@ again:
             die("Unknown action\n");
       }
       ctx->processed_callbacks++;
-      if(NEVER_EXCEED_QUEUE_DEPTH && ctx->io_ops->io_pending(ctx) >= QUEUE_DEPTH) // todo
+      if(NEVER_EXCEED_QUEUE_DEPTH && ctx->io_ops->io_pending(ctx) >= QUEUE_DEPTH)
          break;
    }
 
    if(WAIT_A_BIT_FOR_MORE_IOS) {
-      while(retries < 5 && ctx->io_ops->io_pending(ctx) < QUEUE_DEPTH) { // todo
+      while(retries < 5 && ctx->io_ops->io_pending(ctx) < QUEUE_DEPTH) {
          retries++;
          pending = ctx->sent_callbacks - ctx->processed_callbacks;
          if(pending == 0) {
@@ -341,18 +341,21 @@ static void *worker_slab_init(void *pdata) {
    ctx->pagecache = calloc(1, sizeof(*ctx->pagecache));
    page_cache_init(ctx->pagecache);
 
-   /* Initialize the async io for the worker */
-   ctx->io_ctx = ctx->io_ops->worker_ioengine_init(ctx->max_pending_callbacks); // todo io_setup()
 
    /* Rebuild existing data structures */
    size_t nb_slabs = sizeof(slab_sizes)/sizeof(*slab_sizes);
+   ctx->nb_slabs = nb_slabs;
    ctx->slabs = malloc(nb_slabs*sizeof(*ctx->slabs));
+
    struct slab_callback *cb = malloc(sizeof(*cb));
    cb->cb = worker_slab_init_cb;
    for(size_t i = 0; i < nb_slabs; i++) {
       ctx->slabs[i] = create_slab(ctx, ctx->worker_id, slab_sizes[i], cb);
    }
-   free(cb);
+    /* Initialize the async io for the worker */
+    ctx->io_ops->worker_ioengine_init(ctx);
+
+    free(cb);
 
     __sync_add_and_fetch(&nb_workers_ready, 1);
 

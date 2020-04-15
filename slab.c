@@ -171,7 +171,7 @@ struct slab* resize_slab(struct slab *s) {
  */
 void *read_item(struct slab *s, size_t idx) {
    size_t page_num = item_page_num(s, idx);
-   char *disk_data = safe_pread(s->fd, page_num*PAGE_SIZE); // todo
+   char *disk_data = safe_pread(s->fd, page_num*PAGE_SIZE);
    return &disk_data[item_in_page_offset(s, idx)];
 }
 
@@ -190,7 +190,7 @@ void read_item_async_cb(struct slab_callback *callback) {
 
 void read_item_async(struct slab_callback *callback) {
    callback->io_cb = read_item_async_cb;
-    callback->slab->ctx->io_ops->read_page_async(callback); //todo
+    callback->slab->ctx->io_ops->read_page_async(callback);
 }
 
 /*
@@ -238,12 +238,12 @@ void update_item_async_cb1(struct slab_callback *callback) {
       memcpy(&disk_page[offset_in_page], item, get_item_size(item));
 
    callback->io_cb = update_item_async_cb2;
-    callback->slab->ctx->io_ops->write_page_async(callback); //todo
+    callback->slab->ctx->io_ops->write_page_async(callback);
 }
 
 void update_item_async(struct slab_callback *callback) {
    callback->io_cb = update_item_async_cb1;
-    callback->slab->ctx->io_ops->read_page_async(callback); //todo
+    callback->slab->ctx->io_ops->read_page_async(callback);
 }
 
 /*
@@ -302,11 +302,11 @@ void remove_item_by_idx_async_cb1(struct slab_callback *callback) {
    add_item_in_free_list(s, idx, meta);
 
    callback->io_cb = update_item_async_cb2;
-    callback->slab->ctx->io_ops->write_page_async(callback); //todo
+    callback->slab->ctx->io_ops->write_page_async(callback);
 }
 
 
 void remove_item_async(struct slab_callback *callback) {
    callback->io_cb = remove_item_by_idx_async_cb1;
-    callback->slab->ctx->io_ops->read_page_async(callback); //todo
+    callback->slab->ctx->io_ops->read_page_async(callback);
 }

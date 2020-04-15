@@ -8,6 +8,7 @@ struct slab_context;
 struct slab_context {
     size_t worker_id __attribute__((aligned(64)));        // ID
     struct slab **slabs;                                  // Files managed by this worker
+    size_t nb_slabs;
     struct slab_callback **callbacks;                     // Callbacks associated with the requests
     volatile size_t buffered_callbacks_idx;               // Number of requests enqueued or in the process of being enqueued
     volatile size_t sent_callbacks;                       // Number of requests fully enqueued
@@ -20,6 +21,7 @@ struct slab_context {
     uint64_t rdt;                                         // Latest timestamp
     char *io_engine_name;
     int use_io_uring;
+
 };
 
 void kv_read_async(struct slab_callback *callback);

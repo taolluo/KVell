@@ -19,6 +19,29 @@
       exit(-1);   \
    } while(0)
 
+#if DEBUG_IORING ==1
+#define pdebug(msg, args...) \
+   do {                        \
+      perror("Error: "); \
+      fprintf(stderr,"(%s,%d) " msg "\n", __FUNCTION__ , __LINE__, ##args); \
+   } while(0)
+#else
+#define pdebug(msg, args...) \
+       nop;
+#endif
+
+
+#if DEBUG_IORING == 2
+#define pdebug2(msg, args...) \
+   do {                        \
+      perror("Error: "); \
+      fprintf(stderr,"(%s,%d) " msg "\n", __FUNCTION__ , __LINE__, ##args); \
+   } while(0)
+#else
+#define pdebug2(msg, args...) \
+       nop;
+#endif
+
 
 #ifdef __x86_64__
 #define rdtscll(val) {                                           \
