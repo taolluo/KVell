@@ -427,11 +427,11 @@ struct ioring_data {
 };
 
 static struct ioring_options io_uring_options ={
-        .hipri=1,
+        .hipri=IOPOLL, //iopoll
 //        .cmdprio_percentage=1, ioprio = 0 for all
         .fixedbufs=0, // fixme support fixedbufs?
         .registerfiles=1, //  sqpoll_thread need registerfiles
-        .sqpoll_thread=1,
+        .sqpoll_thread=SQPOLL, // sqpoll
         .sqpoll_set=1,
         .sqpoll_cpu=7, // poll cpu, valid if .sqpoll_set==1
         .sqpoll_idle_set=1,

@@ -7,8 +7,8 @@ int main(int argc, char **argv) {
    /* Definition of the workload, if changed you need to erase the DB before relaunching */
    struct workload w = {
       .api = &YCSB,
-//      .nb_items_in_db = 100000000LU,
-      .nb_items_in_db = 100000LU,
+      .nb_items_in_db = 100000000LU, //1e8
+//      .nb_items_in_db = 100000LU, // 1e5
 
       .nb_load_injectors = 4,
       //.nb_load_injectors = 12, // For scans (see scripts/run-aws.sh and OVERVIEW.md)
@@ -53,13 +53,13 @@ int main(int argc, char **argv) {
    };
    foreach(workload, workloads) {
       if(workload == ycsb_e_uniform || workload == ycsb_e_zipfian) {
-//         w.nb_requests = 2000000LU; // requests for YCSB E are longer (scans) so we do less
+         w.nb_requests = 2000000LU; // requests for YCSB E are longer (scans) so we do less
 //          w.nb_requests = 20000LU; // requests for YCSB E are longer (scans) so we do less
-          w.nb_requests = 200LU; // requests for YCSB E are longer (scans) so we do less
+//          w.nb_requests = 200LU; // requests for YCSB E are longer (scans) so we do less
       } else {
-//         w.nb_requests = 100000000LU;
-//          w.nb_requests = 1000000LU;
-          w.nb_requests = 1000LU;
+         w.nb_requests = 100000000LU; // 1e8
+//          w.nb_requests = 1000000LU;  // 1e6
+//          w.nb_requests = 1000LU;  // 1e3
       }
       run_workload(&w, workload);
    }

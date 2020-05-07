@@ -2,7 +2,7 @@
 #define OPTIONS_H
 
 #define DEBUG 0
-#define DEBUG_IORING 2
+#define DEBUG_IORING 0
 #define PINNING 1
 #define PATH "/scratch%lu/kvell/slab-%d-%lu-%lu"
 
@@ -36,5 +36,7 @@
 // "libaio" or io-uring
 //#define IOENGINE "libaio"
 #define IOENGINE "io-uring"
+#define SQPOLL 1
+#define IOPOLL 1
 
 #endif
