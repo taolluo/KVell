@@ -33,7 +33,7 @@ for i in 0 1 2 3 4 5 6 7 8; do
    mount -o rw,noatime,nodiratime /dev/nvme${i}n1 /scratch${j}/
 
    mkdir /scratch${j}/kvell
-   sudo chown taoluo:taoluo /scratch${j}/kvell
+   sudo chown tao:sudo /scratch${j}/kvell
    j=$((j+1))
 done
 
@@ -46,3 +46,4 @@ done
 #mount -o rw,noatime,nodiratime,block_validity,delalloc,nojournal_checksum,barrier,user_xattr,acl /dev/mapper/vol_e27-root /scratch/
 
 ulimit -n 4096
+mount |grep xfs

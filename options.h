@@ -36,7 +36,8 @@
 // "libaio" or io-uring
 //#define IOENGINE "libaio"
 #define IOENGINE "io-uring"
-#define SQPOLL 1
-#define IOPOLL 1
-
+#define SQPOLL 0
+#define IOPOLL 0
+#define INJECTOR_NR 1
+#define CAP_N_IO 10000000LU
 #endif

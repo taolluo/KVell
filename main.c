@@ -7,10 +7,11 @@ int main(int argc, char **argv) {
    /* Definition of the workload, if changed you need to erase the DB before relaunching */
    struct workload w = {
       .api = &YCSB,
-      .nb_items_in_db = 100000000LU, //1e8
-//      .nb_items_in_db = 100000LU, // 1e5
+//      .nb_items_in_db = 100000000LU, //1e8
+//      .nb_items_in_db = 1000000LU, // 1e6
 
-      .nb_load_injectors = 4,
+      .nb_items_in_db = CAP_N_IO, // 1e6
+      .nb_load_injectors = INJECTOR_NR,
       //.nb_load_injectors = 12, // For scans (see scripts/run-aws.sh and OVERVIEW.md)
    };
 
@@ -57,9 +58,11 @@ int main(int argc, char **argv) {
 //          w.nb_requests = 20000LU; // requests for YCSB E are longer (scans) so we do less
 //          w.nb_requests = 200LU; // requests for YCSB E are longer (scans) so we do less
       } else {
-         w.nb_requests = 100000000LU; // 1e8
+//         w.nb_requests = 100000000LU; // 1e8
 //          w.nb_requests = 1000000LU;  // 1e6
 //          w.nb_requests = 1000LU;  // 1e3
+
+          w.nb_requests = CAP_N_IO;  // 1e3
       }
       run_workload(&w, workload);
    }

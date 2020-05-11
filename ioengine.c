@@ -432,10 +432,10 @@ static struct ioring_options io_uring_options ={
         .fixedbufs=0, // fixme support fixedbufs?
         .registerfiles=1, //  sqpoll_thread need registerfiles
         .sqpoll_thread=SQPOLL, // sqpoll
-        .sqpoll_set=1,
+        .sqpoll_set=0,
         .sqpoll_cpu=7, // poll cpu, valid if .sqpoll_set==1
         .sqpoll_idle_set=1,
-        .sqpoll_idle=1000, //idle time in msec, valid if .sqpoll_idle_set==1
+        .sqpoll_idle=1, //idle time in msec, valid if .sqpoll_idle_set==1
         .nonvectored=1, //??? nonvectored looks normal
         .uncached=1,
 //        .td_o_iodepth=64, // 123 copyed to max_pending_io roundtopower2

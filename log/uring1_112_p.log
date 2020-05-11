@@ -1,0 +1,557 @@
+# Configuration:
+# 	Page cache size: 0 GB
+# 	Workers: 2 working on 1 disks
+# 	IO configuration: 8 queue depth (capped: yes, extra waiting: no)
+# 	Queue configuration: 32 maximum pending callbaks per worker
+# 	Datastructures: 3 (memory index) 3 (pagecache)
+# 	Thread pinning: yes
+# 	Bench: YCSB (10000000 elements)
+Initializing random number generator (Zipf) -- this might take a while for large databases...
+(main,39) [   201ms] Initializing random number generator (Zipf)
+[SLAB WORKER 0] tid 9226
+[SLAB WORKER 1] tid 9227
+#Reserving memory for page cache...
+#Reserving memory for page cache...
+(page_cache_init,29) [   115ms] Page cache initialization
+(page_cache_init,29) [   115ms] Page cache initialization
+(process_existing_chunk,70) [  1s] [ 975123 ops/s] [SLAB WORKER 0] Init - Recovered 975044 items, 0 free spots
+(process_existing_chunk,70) [  1s] [ 999685 ops/s] [SLAB WORKER 1] Init - Recovered 999686 items, 0 free spots
+(process_existing_chunk,70) [  2s] [ 884516 ops/s] [SLAB WORKER 0] Init - Recovered 1859561 items, 0 free spots
+(process_existing_chunk,70) [  2s] [ 883945 ops/s] [SLAB WORKER 1] Init - Recovered 1884161 items, 0 free spots
+(process_existing_chunk,70) [  3s] [ 849314 ops/s] [SLAB WORKER 0] Init - Recovered 2709505 items, 0 free spots
+(process_existing_chunk,70) [  3s] [ 850072 ops/s] [SLAB WORKER 1] Init - Recovered 2734234 items, 0 free spots
+(process_existing_chunk,70) [  4s] [ 835002 ops/s] [SLAB WORKER 0] Init - Recovered 3545089 items, 0 free spots
+(process_existing_chunk,70) [  4s] [ 835013 ops/s] [SLAB WORKER 1] Init - Recovered 3569665 items, 0 free spots
+(process_existing_chunk,70) [  5s] [ 820773 ops/s] [SLAB WORKER 0] Init - Recovered 4365863 items, 0 free spots
+(process_existing_chunk,70) [  5s] [ 820634 ops/s] [SLAB WORKER 1] Init - Recovered 4390300 items, 0 free spots
+(process_existing_chunk,70) [  6s] [3727370 ops/s] [SLAB WORKER 0] Init - Recovered 5000000 items, 0 free spots
+(main,44) [  6162ms] Init found 10000001 elements
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   4% - slab_cb  12% -  105804 ops -  105795 ops/s -   7 ops / loop - 28357 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   1% - slab_cb  13% -  110135 ops -  110132 ops/s -   7 ops / loop - 27241 cycles/op
+(_launch_ycsb,47) [  1s] [ 220420 ops/s] YCSB Load Injector (2%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  110590 ops -  110585 ops/s -   7 ops / loop - 27129 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  110440 ops -  110436 ops/s -   7 ops / loop - 27166 cycles/op
+(_launch_ycsb,47) [  2s] [ 220975 ops/s] YCSB Load Injector (4%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  110071 ops -  110066 ops/s -   7 ops / loop - 27257 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  110286 ops -  110285 ops/s -   7 ops / loop - 27203 cycles/op
+(_launch_ycsb,47) [  3s] [ 220373 ops/s] YCSB Load Injector (6%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109950 ops -  109946 ops/s -   7 ops / loop - 27287 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109739 ops -  109736 ops/s -   7 ops / loop - 27339 cycles/op
+(_launch_ycsb,47) [  4s] [ 219701 ops/s] YCSB Load Injector (8%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109871 ops -  109865 ops/s -   7 ops / loop - 27307 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109801 ops -  109794 ops/s -   7 ops / loop - 27325 cycles/op
+(_launch_ycsb,47) [  5s] [ 219548 ops/s] YCSB Load Injector (11%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109659 ops -  109651 ops/s -   7 ops / loop - 27360 cycles/op
+(_launch_ycsb,47) [  6s] [ 219611 ops/s] YCSB Load Injector (13%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109909 ops -  109898 ops/s -   7 ops / loop - 27299 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109530 ops -  109527 ops/s -   7 ops / loop - 27391 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109340 ops -  109336 ops/s -   7 ops / loop - 27439 cycles/op
+(_launch_ycsb,47) [  7s] [ 218922 ops/s] YCSB Load Injector (15%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109609 ops -  109605 ops/s -   7 ops / loop - 27372 cycles/op
+(_launch_ycsb,47) [  8s] [ 219065 ops/s] YCSB Load Injector (17%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109578 ops -  109571 ops/s -   7 ops / loop - 27380 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109340 ops -  109332 ops/s -   7 ops / loop - 27440 cycles/op
+(_launch_ycsb,47) [  9s] [ 219053 ops/s] YCSB Load Injector (19%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109624 ops -  109619 ops/s -   7 ops / loop - 27368 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109612 ops -  109611 ops/s -   7 ops / loop - 27370 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109338 ops -  109337 ops/s -   7 ops / loop - 27439 cycles/op
+(_launch_ycsb,47) [ 10s] [ 218990 ops/s] YCSB Load Injector (21%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109587 ops -  109582 ops/s -   7 ops / loop - 27377 cycles/op
+(_launch_ycsb,47) [ 11s] [ 219044 ops/s] YCSB Load Injector (24%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109609 ops -  109604 ops/s -   7 ops / loop - 27372 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109001 ops -  108998 ops/s -   7 ops / loop - 27524 cycles/op
+(_launch_ycsb,47) [ 12s] [ 218326 ops/s] YCSB Load Injector (26%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109218 ops -  109215 ops/s -   7 ops / loop - 27469 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109221 ops -  109220 ops/s -   7 ops / loop - 27468 cycles/op
+(_launch_ycsb,47) [ 13s] [ 218268 ops/s] YCSB Load Injector (28%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109007 ops -  109002 ops/s -   7 ops / loop - 27523 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109219 ops -  109217 ops/s -   7 ops / loop - 27469 cycles/op
+(_launch_ycsb,47) [ 14s] [ 218167 ops/s] YCSB Load Injector (30%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109160 ops -  109150 ops/s -   7 ops / loop - 27486 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108940 ops -  108930 ops/s -   7 ops / loop - 27541 cycles/op
+(_launch_ycsb,47) [ 15s] [ 218276 ops/s] YCSB Load Injector (32%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109224 ops -  109218 ops/s -   7 ops / loop - 27468 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109083 ops -  109081 ops/s -   7 ops / loop - 27503 cycles/op
+(_launch_ycsb,47) [ 16s] [ 217876 ops/s] YCSB Load Injector (35%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108813 ops -  108812 ops/s -   7 ops / loop - 27571 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108873 ops -  108872 ops/s -   7 ops / loop - 27556 cycles/op
+(_launch_ycsb,47) [ 17s] [ 217560 ops/s] YCSB Load Injector (37%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108814 ops -  108813 ops/s -   7 ops / loop - 27571 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108673 ops -  108666 ops/s -   7 ops / loop - 27608 cycles/op
+(_launch_ycsb,47) [ 18s] [ 217683 ops/s] YCSB Load Injector (39%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108958 ops -  108948 ops/s -   7 ops / loop - 27537 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108729 ops -  108721 ops/s -   7 ops / loop - 27594 cycles/op
+(_launch_ycsb,47) [ 19s] [ 217403 ops/s] YCSB Load Injector (41%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108591 ops -  108589 ops/s -   7 ops / loop - 27628 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108491 ops -  108483 ops/s -   7 ops / loop - 27655 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108327 ops -  108324 ops/s -   7 ops / loop - 27695 cycles/op
+(_launch_ycsb,47) [ 20s] [ 216681 ops/s] YCSB Load Injector (43%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108581 ops -  108579 ops/s -   7 ops / loop - 27630 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108839 ops -  108837 ops/s -   7 ops / loop - 27565 cycles/op
+(_launch_ycsb,47) [ 21s] [ 217438 ops/s] YCSB Load Injector (45%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108880 ops -  108875 ops/s -   7 ops / loop - 27555 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108753 ops -  108752 ops/s -   7 ops / loop - 27586 cycles/op
+(_launch_ycsb,47) [ 22s] [ 217691 ops/s] YCSB Load Injector (48%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108919 ops -  108918 ops/s -   7 ops / loop - 27544 cycles/op
+(_launch_ycsb,47) [ 23s] [ 217710 ops/s] YCSB Load Injector (50%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108860 ops -  108851 ops/s -   7 ops / loop - 27561 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108702 ops -  108697 ops/s -   7 ops / loop - 27600 cycles/op
+(_launch_ycsb,47) [ 24s] [ 217497 ops/s] YCSB Load Injector (52%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108869 ops -  108859 ops/s -   7 ops / loop - 27559 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108860 ops -  108858 ops/s -   7 ops / loop - 27559 cycles/op
+(_launch_ycsb,47) [ 25s] [ 217764 ops/s] YCSB Load Injector (54%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108784 ops -  108776 ops/s -   7 ops / loop - 27580 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108583 ops -  108579 ops/s -   7 ops / loop - 27630 cycles/op
+(_launch_ycsb,47) [ 26s] [ 217028 ops/s] YCSB Load Injector (56%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108482 ops -  108478 ops/s -   7 ops / loop - 27656 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108629 ops -  108627 ops/s -   7 ops / loop - 27618 cycles/op
+(_launch_ycsb,47) [ 27s] [ 217337 ops/s] YCSB Load Injector (58%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108797 ops -  108792 ops/s -   7 ops / loop - 27576 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108313 ops -  108306 ops/s -   7 ops / loop - 27700 cycles/op
+(_launch_ycsb,47) [ 28s] [ 216630 ops/s] YCSB Load Injector (61%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108283 ops -  108279 ops/s -   7 ops / loop - 27707 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108598 ops -  108596 ops/s -   7 ops / loop - 27626 cycles/op
+(_launch_ycsb,47) [ 29s] [ 217046 ops/s] YCSB Load Injector (63%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108421 ops -  108418 ops/s -   7 ops / loop - 27671 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108645 ops -  108638 ops/s -   7 ops / loop - 27615 cycles/op
+(_launch_ycsb,47) [ 30s] [ 217216 ops/s] YCSB Load Injector (65%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108729 ops -  108722 ops/s -   7 ops / loop - 27594 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108242 ops -  108234 ops/s -   7 ops / loop - 27718 cycles/op
+(_launch_ycsb,47) [ 31s] [ 216817 ops/s] YCSB Load Injector (67%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108401 ops -  108394 ops/s -   7 ops / loop - 27677 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108707 ops -  108703 ops/s -   7 ops / loop - 27599 cycles/op
+(_launch_ycsb,47) [ 32s] [ 217161 ops/s] YCSB Load Injector (69%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108484 ops -  108482 ops/s -   7 ops / loop - 27655 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108719 ops -  108714 ops/s -   7 ops / loop - 27596 cycles/op
+(_launch_ycsb,47) [ 33s] [ 217404 ops/s] YCSB Load Injector (72%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108798 ops -  108790 ops/s -   7 ops / loop - 27577 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108388 ops -  108384 ops/s -   7 ops / loop - 27680 cycles/op
+(_launch_ycsb,47) [ 34s] [ 217061 ops/s] YCSB Load Injector (74%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108567 ops -  108563 ops/s -   7 ops / loop - 27634 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108335 ops -  108333 ops/s -   7 ops / loop - 27693 cycles/op
+(_launch_ycsb,47) [ 35s] [ 216345 ops/s] YCSB Load Injector (76%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108069 ops -  108067 ops/s -   7 ops / loop - 27761 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108144 ops -  108143 ops/s -   7 ops / loop - 27742 cycles/op
+(_launch_ycsb,47) [ 36s] [ 216355 ops/s] YCSB Load Injector (78%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108184 ops -  108182 ops/s -   7 ops / loop - 27732 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108259 ops -  108254 ops/s -   7 ops / loop - 27713 cycles/op
+(_launch_ycsb,47) [ 37s] [ 216670 ops/s] YCSB Load Injector (80%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108454 ops -  108451 ops/s -   7 ops / loop - 27663 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108576 ops -  108574 ops/s -   7 ops / loop - 27631 cycles/op
+(_launch_ycsb,47) [ 38s] [ 217100 ops/s] YCSB Load Injector (82%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108475 ops -  108469 ops/s -   7 ops / loop - 27658 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108839 ops -  108832 ops/s -   7 ops / loop - 27566 cycles/op
+(_launch_ycsb,47) [ 39s] [ 217496 ops/s] YCSB Load Injector (85%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108736 ops -  108733 ops/s -   7 ops / loop - 27591 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108972 ops -  108968 ops/s -   7 ops / loop - 27532 cycles/op
+(_launch_ycsb,47) [ 40s] [ 218061 ops/s] YCSB Load Injector (87%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  109131 ops -  109127 ops/s -   7 ops / loop - 27491 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108467 ops -  108462 ops/s -   7 ops / loop - 27660 cycles/op
+(_launch_ycsb,47) [ 41s] [ 216923 ops/s] YCSB Load Injector (89%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108401 ops -  108396 ops/s -   7 ops / loop - 27677 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108615 ops -  108614 ops/s -   7 ops / loop - 27621 cycles/op
+(_launch_ycsb,47) [ 42s] [ 217124 ops/s] YCSB Load Injector (91%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108514 ops -  108508 ops/s -   7 ops / loop - 27648 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108427 ops -  108422 ops/s -   7 ops / loop - 27670 cycles/op
+(_launch_ycsb,47) [ 43s] [ 216821 ops/s] YCSB Load Injector (93%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108535 ops -  108532 ops/s -   7 ops / loop - 27642 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108288 ops -  108285 ops/s -   7 ops / loop - 27705 cycles/op
+(_launch_ycsb,47) [ 44s] [ 216809 ops/s] YCSB Load Injector (95%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108390 ops -  108387 ops/s -   7 ops / loop - 27679 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108541 ops -  108540 ops/s -   7 ops / loop - 27640 cycles/op
+(_launch_ycsb,47) [ 45s] [ 216842 ops/s] YCSB Load Injector (98%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  80% - io_cb   3% - wait   0% - slab_cb  14% -  108313 ops -  108306 ops/s -   7 ops / loop - 27700 cycles/op
+(run_workload,269) [ 45904ms] YCSB A - Uniform - 10000000 requests (217842 req/s)
+#Latency:
+#	AVG - 272 us
+#	99p - 420 us
+#	max - 12113 us
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  31% - io_cb   1% - wait  61% - slab_cb   5% -  102046 ops -   41762 ops/s -   7 ops / loop - 71838 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  30% - io_cb   1% - wait  62% - slab_cb   5% -   97694 ops -   40648 ops/s -   7 ops / loop - 73806 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  74% - io_cb   3% - wait   0% - slab_cb  20% -  157185 ops -  157184 ops/s -   7 ops / loop - 19086 cycles/op
+(_launch_ycsb,47) [  1s] [ 314217 ops/s] YCSB Load Injector (3%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156994 ops -  156991 ops/s -   7 ops / loop - 19110 cycles/op
+(_launch_ycsb,47) [  2s] [ 313990 ops/s] YCSB Load Injector (6%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156970 ops -  156969 ops/s -   7 ops / loop - 19112 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157028 ops -  157026 ops/s -   7 ops / loop - 19105 cycles/op
+(_launch_ycsb,47) [  3s] [ 314080 ops/s] YCSB Load Injector (9%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156974 ops -  156970 ops/s -   7 ops / loop - 19112 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157120 ops -  157112 ops/s -   7 ops / loop - 19095 cycles/op
+(_launch_ycsb,47) [  4s] [ 312575 ops/s] YCSB Load Injector (12%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156332 ops -  156328 ops/s -   7 ops / loop - 19191 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156240 ops -  156236 ops/s -   7 ops / loop - 19202 cycles/op
+(_launch_ycsb,47) [  5s] [ 314327 ops/s] YCSB Load Injector (15%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157176 ops -  157170 ops/s -   7 ops / loop - 19088 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157167 ops -  157166 ops/s -   7 ops / loop - 19088 cycles/op
+(_launch_ycsb,47) [  6s] [ 314286 ops/s] YCSB Load Injector (18%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157172 ops -  157167 ops/s -   7 ops / loop - 19088 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157121 ops -  157115 ops/s -   7 ops / loop - 19095 cycles/op
+(_launch_ycsb,47) [  7s] [ 314671 ops/s] YCSB Load Injector (21%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157375 ops -  157371 ops/s -   7 ops / loop - 19064 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157315 ops -  157308 ops/s -   7 ops / loop - 19071 cycles/op
+(_launch_ycsb,47) [  8s] [ 313963 ops/s] YCSB Load Injector (25%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157009 ops -  157002 ops/s -   7 ops / loop - 19108 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156943 ops -  156937 ops/s -   7 ops / loop - 19116 cycles/op
+(_launch_ycsb,47) [  9s] [ 314102 ops/s] YCSB Load Injector (28%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157048 ops -  157047 ops/s -   7 ops / loop - 19103 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157089 ops -  157084 ops/s -   7 ops / loop - 19098 cycles/op
+(_launch_ycsb,47) [ 10s] [ 314401 ops/s] YCSB Load Injector (31%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157174 ops -  157173 ops/s -   7 ops / loop - 19087 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157213 ops -  157212 ops/s -   7 ops / loop - 19083 cycles/op
+(_launch_ycsb,47) [ 11s] [ 314617 ops/s] YCSB Load Injector (34%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157322 ops -  157318 ops/s -   7 ops / loop - 19070 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157317 ops -  157312 ops/s -   7 ops / loop - 19071 cycles/op
+(_launch_ycsb,47) [ 12s] [ 314091 ops/s] YCSB Load Injector (37%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157042 ops -  157036 ops/s -   7 ops / loop - 19104 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157057 ops -  157055 ops/s -   7 ops / loop - 19102 cycles/op
+(_launch_ycsb,47) [ 13s] [ 314129 ops/s] YCSB Load Injector (40%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156995 ops -  156994 ops/s -   7 ops / loop - 19109 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157135 ops -  157130 ops/s -   7 ops / loop - 19093 cycles/op
+(_launch_ycsb,47) [ 14s] [ 314927 ops/s] YCSB Load Injector (43%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157445 ops -  157433 ops/s -   7 ops / loop - 19056 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157506 ops -  157490 ops/s -   7 ops / loop - 19049 cycles/op
+(_launch_ycsb,47) [ 15s] [ 314865 ops/s] YCSB Load Injector (47%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157388 ops -  157386 ops/s -   7 ops / loop - 19062 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157492 ops -  157488 ops/s -   7 ops / loop - 19049 cycles/op
+(_launch_ycsb,47) [ 16s] [ 314782 ops/s] YCSB Load Injector (50%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157418 ops -  157415 ops/s -   7 ops / loop - 19058 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157376 ops -  157368 ops/s -   7 ops / loop - 19064 cycles/op
+(_launch_ycsb,47) [ 17s] [ 314799 ops/s] YCSB Load Injector (53%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157395 ops -  157383 ops/s -   7 ops / loop - 19062 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157410 ops -  157402 ops/s -   7 ops / loop - 19060 cycles/op
+(_launch_ycsb,47) [ 18s] [ 314206 ops/s] YCSB Load Injector (56%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157153 ops -  157152 ops/s -   7 ops / loop - 19090 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157064 ops -  157063 ops/s -   7 ops / loop - 19101 cycles/op
+(_launch_ycsb,47) [ 19s] [ 313657 ops/s] YCSB Load Injector (59%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156831 ops -  156826 ops/s -   7 ops / loop - 19130 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156828 ops -  156825 ops/s -   7 ops / loop - 19130 cycles/op
+(_launch_ycsb,47) [ 20s] [ 313912 ops/s] YCSB Load Injector (62%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157019 ops -  157012 ops/s -   7 ops / loop - 19107 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156894 ops -  156883 ops/s -   7 ops / loop - 19123 cycles/op
+(_launch_ycsb,47) [ 21s] [ 313999 ops/s] YCSB Load Injector (65%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157052 ops -  157050 ops/s -   7 ops / loop - 19102 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156976 ops -  156970 ops/s -   7 ops / loop - 19112 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156984 ops -  156981 ops/s -   7 ops / loop - 19111 cycles/op
+(_launch_ycsb,47) [ 22s] [ 313987 ops/s] YCSB Load Injector (69%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157009 ops -  157002 ops/s -   7 ops / loop - 19108 cycles/op
+(_launch_ycsb,47) [ 23s] [ 312943 ops/s] YCSB Load Injector (72%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156452 ops -  156446 ops/s -   7 ops / loop - 19176 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156506 ops -  156495 ops/s -   7 ops / loop - 19170 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157450 ops -  157448 ops/s -   7 ops / loop - 19054 cycles/op
+(_launch_ycsb,47) [ 24s] [ 314897 ops/s] YCSB Load Injector (75%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157444 ops -  157439 ops/s -   7 ops / loop - 19055 cycles/op
+(_launch_ycsb,47) [ 25s] [ 315150 ops/s] YCSB Load Injector (78%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157642 ops -  157637 ops/s -   7 ops / loop - 19031 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157521 ops -  157513 ops/s -   7 ops / loop - 19046 cycles/op
+(_launch_ycsb,47) [ 26s] [ 314649 ops/s] YCSB Load Injector (81%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157384 ops -  157379 ops/s -   7 ops / loop - 19063 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157280 ops -  157274 ops/s -   7 ops / loop - 19075 cycles/op
+(_launch_ycsb,47) [ 27s] [ 314745 ops/s] YCSB Load Injector (84%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157356 ops -  157349 ops/s -   7 ops / loop - 19066 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157392 ops -  157385 ops/s -   7 ops / loop - 19062 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156982 ops -  156980 ops/s -   7 ops / loop - 19111 cycles/op
+(_launch_ycsb,47) [ 28s] [ 314030 ops/s] YCSB Load Injector (87%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157058 ops -  157054 ops/s -   7 ops / loop - 19102 cycles/op
+(_launch_ycsb,47) [ 29s] [ 313894 ops/s] YCSB Load Injector (91%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156959 ops -  156948 ops/s -   7 ops / loop - 19115 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  156932 ops -  156923 ops/s -   7 ops / loop - 19118 cycles/op
+(_launch_ycsb,47) [ 30s] [ 314203 ops/s] YCSB Load Injector (94%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157055 ops -  157052 ops/s -   7 ops / loop - 19102 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157171 ops -  157164 ops/s -   7 ops / loop - 19089 cycles/op
+(_launch_ycsb,47) [ 31s] [ 315329 ops/s] YCSB Load Injector (97%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157728 ops -  157722 ops/s -   7 ops / loop - 19021 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  75% - io_cb   3% - wait   0% - slab_cb  20% -  157614 ops -  157610 ops/s -   7 ops / loop - 19035 cycles/op
+(run_workload,269) [ 31820ms] YCSB B - Uniform - 10000000 requests (314262 req/s)
+#Latency:
+#	AVG - 187 us
+#	99p - 298 us
+#	max - 461 us
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  27% - io_cb   1% - wait  63% - slab_cb   7% -  128609 ops -   57008 ops/s -   7 ops / loop - 52625 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  27% - io_cb   1% - wait  63% - slab_cb   7% -  128712 ops -   57054 ops/s -   7 ops / loop - 52583 cycles/op
+(_launch_ycsb,47) [  1s] [ 364881 ops/s] YCSB Load Injector (3%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182562 ops -  182561 ops/s -   8 ops / loop - 16433 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182295 ops -  182292 ops/s -   8 ops / loop - 16457 cycles/op
+(_launch_ycsb,47) [  2s] [ 363938 ops/s] YCSB Load Injector (7%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  181806 ops -  181804 ops/s -   8 ops / loop - 16501 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182110 ops -  182107 ops/s -   8 ops / loop - 16474 cycles/op
+(_launch_ycsb,47) [  3s] [ 365009 ops/s] YCSB Load Injector (10%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182633 ops -  182630 ops/s -   8 ops / loop - 16427 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182396 ops -  182391 ops/s -   8 ops / loop - 16448 cycles/op
+(_launch_ycsb,47) [  4s] [ 364779 ops/s] YCSB Load Injector (14%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182323 ops -  182322 ops/s -   8 ops / loop - 16455 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182476 ops -  182471 ops/s -   8 ops / loop - 16441 cycles/op
+(_launch_ycsb,47) [  5s] [ 365244 ops/s] YCSB Load Injector (18%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182651 ops -  182645 ops/s -   8 ops / loop - 16425 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182592 ops -  182590 ops/s -   8 ops / loop - 16430 cycles/op
+(_launch_ycsb,47) [  6s] [ 365997 ops/s] YCSB Load Injector (21%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183048 ops -  183045 ops/s -   8 ops / loop - 16390 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182941 ops -  182940 ops/s -   8 ops / loop - 16399 cycles/op
+(_launch_ycsb,47) [  7s] [ 366143 ops/s] YCSB Load Injector (25%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182962 ops -  182959 ops/s -   8 ops / loop - 16397 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183201 ops -  183196 ops/s -   8 ops / loop - 16376 cycles/op
+(_launch_ycsb,47) [  8s] [ 366527 ops/s] YCSB Load Injector (29%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183422 ops -  183416 ops/s -   8 ops / loop - 16356 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183119 ops -  183113 ops/s -   8 ops / loop - 16384 cycles/op
+(_launch_ycsb,47) [  9s] [ 366041 ops/s] YCSB Load Injector (32%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182911 ops -  182904 ops/s -   8 ops / loop - 16402 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183137 ops -  183131 ops/s -   8 ops / loop - 16382 cycles/op
+(_launch_ycsb,47) [ 10s] [ 365981 ops/s] YCSB Load Injector (36%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183056 ops -  183051 ops/s -   8 ops / loop - 16389 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182921 ops -  182918 ops/s -   8 ops / loop - 16401 cycles/op
+(_launch_ycsb,47) [ 11s] [ 365774 ops/s] YCSB Load Injector (40%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182885 ops -  182877 ops/s -   8 ops / loop - 16405 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182906 ops -  182898 ops/s -   8 ops / loop - 16403 cycles/op
+(_launch_ycsb,47) [ 12s] [ 366136 ops/s] YCSB Load Injector (43%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183016 ops -  183013 ops/s -   8 ops / loop - 16392 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183120 ops -  183115 ops/s -   8 ops / loop - 16383 cycles/op
+(_launch_ycsb,47) [ 13s] [ 365750 ops/s] YCSB Load Injector (47%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182992 ops -  182989 ops/s -   8 ops / loop - 16395 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182787 ops -  182785 ops/s -   8 ops / loop - 16413 cycles/op
+(_launch_ycsb,47) [ 14s] [ 366167 ops/s] YCSB Load Injector (51%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182933 ops -  182927 ops/s -   8 ops / loop - 16400 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183220 ops -  183215 ops/s -   8 ops / loop - 16374 cycles/op
+(_launch_ycsb,47) [ 15s] [ 366263 ops/s] YCSB Load Injector (54%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183260 ops -  183253 ops/s -   8 ops / loop - 16371 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183032 ops -  183025 ops/s -   8 ops / loop - 16391 cycles/op
+(_launch_ycsb,47) [ 16s] [ 365573 ops/s] YCSB Load Injector (58%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182852 ops -  182847 ops/s -   8 ops / loop - 16407 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182732 ops -  182723 ops/s -   8 ops / loop - 16418 cycles/op
+(_launch_ycsb,47) [ 17s] [ 364119 ops/s] YCSB Load Injector (62%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182077 ops -  182071 ops/s -   8 ops / loop - 16477 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182054 ops -  182043 ops/s -   8 ops / loop - 16480 cycles/op
+(_launch_ycsb,47) [ 18s] [ 365422 ops/s] YCSB Load Injector (65%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182770 ops -  182763 ops/s -   8 ops / loop - 16415 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182673 ops -  182666 ops/s -   8 ops / loop - 16424 cycles/op
+(_launch_ycsb,47) [ 19s] [ 365048 ops/s] YCSB Load Injector (69%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182423 ops -  182414 ops/s -   8 ops / loop - 16446 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182653 ops -  182644 ops/s -   8 ops / loop - 16426 cycles/op
+(_launch_ycsb,47) [ 20s] [ 365266 ops/s] YCSB Load Injector (73%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182481 ops -  182480 ops/s -   8 ops / loop - 16440 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182782 ops -  182775 ops/s -   8 ops / loop - 16414 cycles/op
+(_launch_ycsb,47) [ 21s] [ 366054 ops/s] YCSB Load Injector (76%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182893 ops -  182888 ops/s -   8 ops / loop - 16404 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183178 ops -  183165 ops/s -   8 ops / loop - 16379 cycles/op
+(_launch_ycsb,47) [ 22s] [ 366002 ops/s] YCSB Load Injector (80%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183108 ops -  183103 ops/s -   8 ops / loop - 16384 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182901 ops -  182898 ops/s -   8 ops / loop - 16403 cycles/op
+(_launch_ycsb,47) [ 23s] [ 366243 ops/s] YCSB Load Injector (84%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183077 ops -  183070 ops/s -   8 ops / loop - 16387 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183176 ops -  183171 ops/s -   8 ops / loop - 16378 cycles/op
+(_launch_ycsb,47) [ 24s] [ 366199 ops/s] YCSB Load Injector (87%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183078 ops -  183077 ops/s -   8 ops / loop - 16387 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183137 ops -  183129 ops/s -   8 ops / loop - 16382 cycles/op
+(_launch_ycsb,47) [ 25s] [ 366091 ops/s] YCSB Load Injector (91%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183175 ops -  183162 ops/s -   8 ops / loop - 16379 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182926 ops -  182917 ops/s -   8 ops / loop - 16401 cycles/op
+(_launch_ycsb,47) [ 26s] [ 366187 ops/s] YCSB Load Injector (95%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183258 ops -  183251 ops/s -   8 ops / loop - 16371 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182963 ops -  182952 ops/s -   8 ops / loop - 16398 cycles/op
+(_launch_ycsb,47) [ 27s] [ 366166 ops/s] YCSB Load Injector (98%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  183208 ops -  183206 ops/s -   8 ops / loop - 16375 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  72% - io_cb   3% - wait   0% - slab_cb  23% -  182963 ops -  182956 ops/s -   8 ops / loop - 16397 cycles/op
+(run_workload,269) [ 27347ms] YCSB C - Uniform - 10000000 requests (365667 req/s)
+#Latency:
+#	AVG - 168 us
+#	99p - 240 us
+#	max - 394 us
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  14% - io_cb   0% - wait  80% - slab_cb   4% -   63351 ops -   36002 ops/s -   8 ops / loop - 83330 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  14% - io_cb   0% - wait  80% - slab_cb   4% -   63398 ops -   36029 ops/s -   8 ops / loop - 83269 cycles/op
+(_launch_ycsb,47) [  1s] [ 311496 ops/s] YCSB Load Injector (3%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  149266 ops -  149260 ops/s -   9 ops / loop - 20099 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   0% - slab_cb  17% -  162225 ops -  162216 ops/s -  11 ops / loop - 18494 cycles/op
+(_launch_ycsb,47) [  2s] [ 324885 ops/s] YCSB Load Injector (6%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155998 ops -  155984 ops/s -   9 ops / loop - 19233 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168914 ops -  168900 ops/s -  11 ops / loop - 17762 cycles/op
+(_launch_ycsb,47) [  3s] [ 323715 ops/s] YCSB Load Injector (9%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  154765 ops -  154759 ops/s -   9 ops / loop - 19385 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168963 ops -  168952 ops/s -  11 ops / loop - 17757 cycles/op
+(_launch_ycsb,47) [  4s] [ 323304 ops/s] YCSB Load Injector (12%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168240 ops -  168236 ops/s -  11 ops / loop - 17832 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155073 ops -  155062 ops/s -   9 ops / loop - 19347 cycles/op
+(_launch_ycsb,47) [  5s] [ 322925 ops/s] YCSB Load Injector (16%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168354 ops -  168349 ops/s -  11 ops / loop - 17820 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  154591 ops -  154583 ops/s -   9 ops / loop - 19407 cycles/op
+(_launch_ycsb,47) [  6s] [ 323961 ops/s] YCSB Load Injector (19%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168570 ops -  168559 ops/s -  11 ops / loop - 17798 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155412 ops -  155406 ops/s -   9 ops / loop - 19305 cycles/op
+(_launch_ycsb,47) [  7s] [ 324909 ops/s] YCSB Load Injector (22%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  156400 ops -  156396 ops/s -   9 ops / loop - 19182 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168512 ops -  168505 ops/s -  11 ops / loop - 17804 cycles/op
+(_launch_ycsb,47) [  8s] [ 324044 ops/s] YCSB Load Injector (25%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168574 ops -  168572 ops/s -  11 ops / loop - 17797 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155470 ops -  155467 ops/s -   9 ops / loop - 19297 cycles/op
+(_launch_ycsb,47) [  9s] [ 325596 ops/s] YCSB Load Injector (29%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  156062 ops -  156054 ops/s -   9 ops / loop - 19224 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169533 ops -  169523 ops/s -  11 ops / loop - 17697 cycles/op
+(_launch_ycsb,47) [ 10s] [ 319288 ops/s] YCSB Load Injector (32%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   2% - slab_cb  15% -  153020 ops -  153016 ops/s -   9 ops / loop - 19606 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  76% - io_cb   3% - wait   0% - slab_cb  18% -  166287 ops -  166270 ops/s -  11 ops / loop - 18043 cycles/op
+(_launch_ycsb,47) [ 11s] [ 324929 ops/s] YCSB Load Injector (35%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155976 ops -  155974 ops/s -   9 ops / loop - 19234 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168982 ops -  168968 ops/s -  11 ops / loop - 17755 cycles/op
+(_launch_ycsb,47) [ 12s] [ 323854 ops/s] YCSB Load Injector (38%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  154750 ops -  154739 ops/s -   9 ops / loop - 19388 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169119 ops -  169109 ops/s -  11 ops / loop - 17740 cycles/op
+(_launch_ycsb,47) [ 13s] [ 324692 ops/s] YCSB Load Injector (41%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155848 ops -  155843 ops/s -   9 ops / loop - 19250 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168858 ops -  168854 ops/s -  11 ops / loop - 17767 cycles/op
+(_launch_ycsb,47) [ 14s] [ 325018 ops/s] YCSB Load Injector (45%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155813 ops -  155809 ops/s -   9 ops / loop - 19255 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169226 ops -  169217 ops/s -  11 ops / loop - 17729 cycles/op
+(_launch_ycsb,47) [ 15s] [ 325045 ops/s] YCSB Load Injector (48%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155933 ops -  155918 ops/s -   9 ops / loop - 19241 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169114 ops -  169113 ops/s -  11 ops / loop - 17740 cycles/op
+(_launch_ycsb,47) [ 16s] [ 325144 ops/s] YCSB Load Injector (51%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  156161 ops -  156156 ops/s -   9 ops / loop - 19212 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169018 ops -  169015 ops/s -  11 ops / loop - 17750 cycles/op
+(_launch_ycsb,47) [ 17s] [ 325490 ops/s] YCSB Load Injector (54%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155906 ops -  155897 ops/s -   9 ops / loop - 19244 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169617 ops -  169605 ops/s -  11 ops / loop - 17688 cycles/op
+(_launch_ycsb,47) [ 18s] [ 325641 ops/s] YCSB Load Injector (58%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  156101 ops -  156098 ops/s -   9 ops / loop - 19219 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169521 ops -  169519 ops/s -  11 ops / loop - 17697 cycles/op
+(_launch_ycsb,47) [ 19s] [ 324514 ops/s] YCSB Load Injector (61%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155707 ops -  155698 ops/s -   9 ops / loop - 19268 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168825 ops -  168815 ops/s -  11 ops / loop - 17771 cycles/op
+(_launch_ycsb,47) [ 20s] [ 323452 ops/s] YCSB Load Injector (64%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155405 ops -  155404 ops/s -   9 ops / loop - 19305 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168034 ops -  168026 ops/s -  11 ops / loop - 17855 cycles/op
+(_launch_ycsb,47) [ 21s] [ 324724 ops/s] YCSB Load Injector (67%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155922 ops -  155914 ops/s -   9 ops / loop - 19242 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168822 ops -  168821 ops/s -  11 ops / loop - 17770 cycles/op
+(_launch_ycsb,47) [ 22s] [ 324305 ops/s] YCSB Load Injector (71%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155444 ops -  155443 ops/s -   9 ops / loop - 19300 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168870 ops -  168863 ops/s -  11 ops / loop - 17766 cycles/op
+(_launch_ycsb,47) [ 23s] [ 324163 ops/s] YCSB Load Injector (74%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155586 ops -  155582 ops/s -   9 ops / loop - 19283 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168576 ops -  168575 ops/s -  11 ops / loop - 17796 cycles/op
+(_launch_ycsb,47) [ 24s] [ 324616 ops/s] YCSB Load Injector (77%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155138 ops -  155133 ops/s -   9 ops / loop - 19338 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169505 ops -  169497 ops/s -  11 ops / loop - 17700 cycles/op
+(_launch_ycsb,47) [ 25s] [ 324510 ops/s] YCSB Load Injector (80%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   4% - wait   1% - slab_cb  15% -  155375 ops -  155373 ops/s -   9 ops / loop - 19309 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169131 ops -  169130 ops/s -  11 ops / loop - 17738 cycles/op
+(_launch_ycsb,47) [ 26s] [ 325758 ops/s] YCSB Load Injector (84%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155946 ops -  155940 ops/s -   9 ops / loop - 19238 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169829 ops -  169826 ops/s -  11 ops / loop - 17665 cycles/op
+(_launch_ycsb,47) [ 27s] [ 325358 ops/s] YCSB Load Injector (87%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  156010 ops -  156004 ops/s -   9 ops / loop - 19231 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169377 ops -  169372 ops/s -  11 ops / loop - 17713 cycles/op
+(_launch_ycsb,47) [ 28s] [ 324825 ops/s] YCSB Load Injector (90%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  169507 ops -  169504 ops/s -  11 ops / loop - 17699 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155308 ops -  155299 ops/s -   9 ops / loop - 19318 cycles/op
+(_launch_ycsb,47) [ 29s] [ 324449 ops/s] YCSB Load Injector (93%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168811 ops -  168806 ops/s -  11 ops / loop - 17772 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155663 ops -  155655 ops/s -   9 ops / loop - 19274 cycles/op
+(_launch_ycsb,47) [ 30s] [ 324875 ops/s] YCSB Load Injector (97%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  77% - io_cb   3% - wait   0% - slab_cb  18% -  168892 ops -  168890 ops/s -  11 ops / loop - 17763 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  78% - io_cb   3% - wait   1% - slab_cb  15% -  155986 ops -  155983 ops/s -   9 ops / loop - 19233 cycles/op
+(run_workload,269) [ 30867ms] YCSB A - Zipf - 10000000 requests (323969 req/s)
+#Latency:
+#	AVG - 171 us
+#	99p - 323 us
+#	max - 4278 us
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  28% - io_cb   1% - wait  63% - slab_cb   6% -  145610 ops -   61251 ops/s -  11 ops / loop - 48980 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  28% - io_cb   1% - wait  64% - slab_cb   5% -  134549 ops -   56599 ops/s -   9 ops / loop - 53005 cycles/op
+(_launch_ycsb,47) [  1s] [ 588412 ops/s] YCSB Load Injector (5%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  56% - io_cb   3% - wait   0% - slab_cb  38% -  306180 ops -  306178 ops/s -  17 ops / loop - 9798 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  282221 ops -  282213 ops/s -  12 ops / loop - 10630 cycles/op
+(_launch_ycsb,47) [  2s] [ 587976 ops/s] YCSB Load Injector (11%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  57% - io_cb   3% - wait   0% - slab_cb  37% -  306105 ops -  306093 ops/s -  17 ops / loop - 9801 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  281878 ops -  281867 ops/s -  12 ops / loop - 10643 cycles/op
+(_launch_ycsb,47) [  3s] [ 587037 ops/s] YCSB Load Injector (17%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  57% - io_cb   3% - wait   0% - slab_cb  37% -  305583 ops -  305581 ops/s -  17 ops / loop - 9817 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  281468 ops -  281461 ops/s -  12 ops / loop - 10659 cycles/op
+(_launch_ycsb,47) [  4s] [ 588252 ops/s] YCSB Load Injector (23%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  57% - io_cb   3% - wait   0% - slab_cb  37% -  305943 ops -  305936 ops/s -  17 ops / loop - 9806 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  282343 ops -  282331 ops/s -  12 ops / loop - 10626 cycles/op
+(_launch_ycsb,47) [  5s] [ 588649 ops/s] YCSB Load Injector (29%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  57% - io_cb   3% - wait   0% - slab_cb  37% -  306159 ops -  306149 ops/s -  17 ops / loop - 9799 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  282533 ops -  282519 ops/s -  12 ops / loop - 10619 cycles/op
+(_launch_ycsb,47) [  6s] [ 589123 ops/s] YCSB Load Injector (35%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  57% - io_cb   3% - wait   0% - slab_cb  37% -  306388 ops -  306365 ops/s -  17 ops / loop - 9792 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   1% - slab_cb  32% -  282750 ops -  282744 ops/s -  12 ops / loop - 10610 cycles/op
+(_launch_ycsb,47) [  7s] [ 586057 ops/s] YCSB Load Injector (41%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  56% - io_cb   3% - wait   0% - slab_cb  38% -  305594 ops -  305584 ops/s -  17 ops / loop - 9817 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  31% -  280481 ops -  280476 ops/s -  11 ops / loop - 10696 cycles/op
+(_launch_ycsb,47) [  8s] [ 587176 ops/s] YCSB Load Injector (47%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  31% -  281036 ops -  281023 ops/s -  12 ops / loop - 10675 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  56% - io_cb   3% - wait   0% - slab_cb  38% -  306154 ops -  306134 ops/s -  17 ops / loop - 9800 cycles/op
+(_launch_ycsb,47) [  9s] [ 589040 ops/s] YCSB Load Injector (52%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  56% - io_cb   3% - wait   0% - slab_cb  38% -  306932 ops -  306917 ops/s -  18 ops / loop - 9775 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  31% -  282151 ops -  282129 ops/s -  12 ops / loop - 10633 cycles/op
+(_launch_ycsb,47) [ 10s] [ 590500 ops/s] YCSB Load Injector (58%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  56% - io_cb   3% - wait   0% - slab_cb  37% -  307576 ops -  307561 ops/s -  17 ops / loop - 9754 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  282952 ops -  282943 ops/s -  12 ops / loop - 10603 cycles/op
+(_launch_ycsb,47) [ 11s] [ 589908 ops/s] YCSB Load Injector (64%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  57% - io_cb   3% - wait   0% - slab_cb  37% -  306306 ops -  306290 ops/s -  17 ops / loop - 9795 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  283611 ops -  283593 ops/s -  12 ops / loop - 10578 cycles/op
+(_launch_ycsb,47) [ 12s] [ 588254 ops/s] YCSB Load Injector (70%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  57% - io_cb   3% - wait   0% - slab_cb  37% -  305983 ops -  305968 ops/s -  17 ops / loop - 9805 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  282337 ops -  282327 ops/s -  12 ops / loop - 10626 cycles/op
+(_launch_ycsb,47) [ 13s] [ 589667 ops/s] YCSB Load Injector (76%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  282425 ops -  282413 ops/s -  12 ops / loop - 10623 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  56% - io_cb   3% - wait   0% - slab_cb  37% -  307239 ops -  307205 ops/s -  17 ops / loop - 9765 cycles/op
+(_launch_ycsb,47) [ 14s] [ 589881 ops/s] YCSB Load Injector (82%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  282372 ops -  282366 ops/s -  12 ops / loop - 10624 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  56% - io_cb   3% - wait   0% - slab_cb  38% -  307580 ops -  307561 ops/s -  17 ops / loop - 9754 cycles/op
+(_launch_ycsb,47) [ 15s] [ 591250 ops/s] YCSB Load Injector (88%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   1% - slab_cb  32% -  283928 ops -  283921 ops/s -  12 ops / loop - 10566 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  56% - io_cb   3% - wait   0% - slab_cb  37% -  307329 ops -  307317 ops/s -  17 ops / loop - 9762 cycles/op
+(_launch_ycsb,47) [ 16s] [ 589160 ops/s] YCSB Load Injector (94%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  59% - io_cb   5% - wait   2% - slab_cb  32% -  283073 ops -  283071 ops/s -  12 ops / loop - 10598 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  57% - io_cb   3% - wait   0% - slab_cb  37% -  306076 ops -  306069 ops/s -  17 ops / loop - 9802 cycles/op
+(run_workload,269) [ 16985ms] YCSB B - Zipf - 10000000 requests (588721 req/s)
+#Latency:
+#	AVG - 91 us
+#	99p - 207 us
+#	max - 372 us
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  24% - io_cb   2% - wait  60% - slab_cb  13% -  278630 ops -  113662 ops/s -  12 ops / loop - 26394 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  22% - io_cb   1% - wait  60% - slab_cb  15% -  300684 ops -  122666 ops/s -  17 ops / loop - 24457 cycles/op
+(_launch_ycsb,47) [  1s] [ 677837 ops/s] YCSB Load Injector (6%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  352885 ops -  352884 ops/s -  19 ops / loop - 8501 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   6% - wait   1% - slab_cb  37% -  324933 ops -  324924 ops/s -  13 ops / loop - 9233 cycles/op
+(_launch_ycsb,47) [  2s] [ 677169 ops/s] YCSB Load Injector (13%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  352296 ops -  352275 ops/s -  19 ops / loop - 8516 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   6% - wait   1% - slab_cb  37% -  324910 ops -  324894 ops/s -  13 ops / loop - 9234 cycles/op
+(_launch_ycsb,47) [  3s] [ 678889 ops/s] YCSB Load Injector (20%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  43% -  353160 ops -  353144 ops/s -  18 ops / loop - 8495 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   5% - wait   1% - slab_cb  38% -  325759 ops -  325744 ops/s -  13 ops / loop - 9210 cycles/op
+(_launch_ycsb,47) [  4s] [ 680531 ops/s] YCSB Load Injector (27%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  354296 ops -  354293 ops/s -  19 ops / loop - 8467 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   6% - wait   1% - slab_cb  37% -  326244 ops -  326243 ops/s -  13 ops / loop - 9195 cycles/op
+(_launch_ycsb,47) [  5s] [ 679324 ops/s] YCSB Load Injector (33%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   6% - wait   1% - slab_cb  37% -  326198 ops -  326183 ops/s -  13 ops / loop - 9197 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  353142 ops -  353124 ops/s -  19 ops / loop - 8495 cycles/op
+(_launch_ycsb,47) [  6s] [ 680695 ops/s] YCSB Load Injector (40%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  353663 ops -  353646 ops/s -  18 ops / loop - 8483 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   5% - wait   1% - slab_cb  38% -  327057 ops -  327040 ops/s -  13 ops / loop - 9173 cycles/op
+(_launch_ycsb,47) [  7s] [ 680762 ops/s] YCSB Load Injector (47%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   6% - wait   1% - slab_cb  37% -  326017 ops -  326010 ops/s -  13 ops / loop - 9202 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  354782 ops -  354767 ops/s -  19 ops / loop - 8456 cycles/op
+(_launch_ycsb,47) [  8s] [ 682393 ops/s] YCSB Load Injector (54%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   5% - wait   1% - slab_cb  38% -  328074 ops -  328060 ops/s -  13 ops / loop - 9145 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  354332 ops -  354320 ops/s -  18 ops / loop - 8467 cycles/op
+(_launch_ycsb,47) [  9s] [ 680234 ops/s] YCSB Load Injector (61%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  353837 ops -  353835 ops/s -  18 ops / loop - 8478 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   5% - wait   1% - slab_cb  38% -  326431 ops -  326416 ops/s -  13 ops / loop - 9191 cycles/op
+(_launch_ycsb,47) [ 10s] [ 680708 ops/s] YCSB Load Injector (67%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  354327 ops -  354316 ops/s -  18 ops / loop - 8467 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   5% - wait   1% - slab_cb  37% -  326373 ops -  326365 ops/s -  13 ops / loop - 9192 cycles/op
+(_launch_ycsb,47) [ 11s] [ 683006 ops/s] YCSB Load Injector (74%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  355072 ops -  355054 ops/s -  19 ops / loop - 8449 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   5% - wait   1% - slab_cb  38% -  327990 ops -  327978 ops/s -  13 ops / loop - 9147 cycles/op
+(_launch_ycsb,47) [ 12s] [ 682472 ops/s] YCSB Load Injector (81%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  354792 ops -  354788 ops/s -  18 ops / loop - 8456 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   5% - wait   1% - slab_cb  37% -  327694 ops -  327680 ops/s -  13 ops / loop - 9155 cycles/op
+(_launch_ycsb,47) [ 13s] [ 681524 ops/s] YCSB Load Injector (88%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   5% - wait   1% - slab_cb  37% -  326715 ops -  326707 ops/s -  13 ops / loop - 9182 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  354833 ops -  354809 ops/s -  19 ops / loop - 8455 cycles/op
+(_launch_ycsb,47) [ 14s] [ 680842 ops/s] YCSB Load Injector (95%)
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  54% - io_cb   5% - wait   1% - slab_cb  38% -  326399 ops -  326393 ops/s -  13 ops / loop - 9191 cycles/op
+[WORKER BREAKDOWN] io_submit  0% - io_getevents  50% - io_cb   4% - wait   0% - slab_cb  44% -  354479 ops -  354464 ops/s -  18 ops / loop - 8463 cycles/op
+(run_workload,269) [ 14695ms] YCSB C - Zipf - 10000000 requests (680478 req/s)
+#Latency:
+#	AVG - 79 us
+#	99p - 182 us
+#	max - 313 us
